@@ -10,6 +10,7 @@
     "ts:check": "tsc"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "expo": "~50.0.2",
     "expo-status-bar": "~1.11.1",
     "nativewind": "^2.0.11",
