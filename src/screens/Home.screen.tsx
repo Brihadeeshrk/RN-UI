@@ -252,6 +252,21 @@ const HomeScreen: React.FC = () => {
           </View>
         </View>
       </Container>
+
+      <Container>
+      <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Progress Bar</Text>
+      <ProgressBar min={0} max={100} progress={50} />
+    </Container>
+
+    <Container>
+      <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Slider</Text>
+      <Slider min={0} max={100} onValueChange={handleSliderChange} />
+    </Container>
+
+    <Container>
+      <Heading text="Welcome to My App" />
+    </Container>
+
     </ScrollView>
   );
 };
