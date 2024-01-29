@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Text, Button, View } from "react-native";
+import { Text, View } from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { BlockQuote } from "../components/Core/BlockQuote";
 import { Alert } from "../components/Core/Alert";
@@ -9,6 +9,9 @@ import { Badge } from "../components/Core/Badge";
 import { DialogBox } from "../components/Core/DialogBox";
 import { Accordion } from "../components/Core/Accordion";
 import Calendar from "../components/Core/Calendar";
+import Avatar from "../components/Core/Avatar";
+import Button from "../components/Core/Button";
+import Card from "../components/Core/Card";
 
 const HomeScreen: React.FC = () => {
   const {
@@ -33,17 +36,14 @@ const HomeScreen: React.FC = () => {
 
       <Container>
         <Text className="font-bold text-lg">Alert and Prompt Modals</Text>
-        <Button title="Show Alert" onPress={() => updateAlertModalOpen(true)} />
+        <Button onPress={() => updateAlertModalOpen(true)}>Show Alert</Button>
         <Alert
           message="This is an alert message."
           visible={alertModalOpen}
           onClose={() => updateAlertModalOpen(false)}
         />
 
-        <Button
-          title="Show Prompt"
-          onPress={() => updatePromptModalOpen(true)}
-        />
+        <Button onPress={() => updatePromptModalOpen(true)}>Show Prompt</Button>
         <Alert
           message="Enter a value:"
           visible={promptModalOpen}
@@ -63,10 +63,7 @@ const HomeScreen: React.FC = () => {
 
       <Container>
         <Text className="font-bold text-lg ">Dialog Box</Text>
-        <Button
-          title="Show Dialog"
-          onPress={() => updateDialogModalOpen(true)}
-        />
+        <Button onPress={() => updateDialogModalOpen(true)}>Show Dialog</Button>
         <DialogBox
           visible={dialogModalOpen}
           onClose={() => updateDialogModalOpen(false)}
@@ -96,6 +93,24 @@ const HomeScreen: React.FC = () => {
       <Container>
         <Text className="font-bold text-lg ">Calendar</Text>
         <Calendar />
+      </Container>
+
+      <Container>
+        <Text className="font-bold text-lg ">Avatar</Text>
+        <Avatar />
+      </Container>
+
+      <Container>
+        <Text className="font-bold text-lg ">Button</Text>
+        <Button>This is a Button</Button>
+      </Container>
+
+      <Container>
+        <Text className="font-bold text-lg ">Card</Text>
+        <Card>
+          <Text className="font-bold text-lg ">Card</Text>
+          <Text>This is the content of the card.</Text>
+        </Card>
       </Container>
     </ScrollView>
   );
