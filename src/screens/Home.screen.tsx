@@ -8,7 +8,7 @@ import Container from "../components/Core/Container";
 import { Badge } from "../components/Core/Badge";
 import { DialogBox } from "../components/Core/DialogBox";
 import { Accordion } from "../components/Core/Accordion";
-import Calendar from "../components/Core/Calendar";
+import { Calendar } from "../components/Core/Calendar";
 import Avatar from "../components/Core/Avatar";
 import Button from "../components/Core/Button";
 import Card from "../components/Core/Card";

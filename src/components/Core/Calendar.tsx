@@ -4,7 +4,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 
 type CalendarProps = {};
 
-const Calendar: React.FC<CalendarProps> = () => {
+export const Calendar: React.FC<CalendarProps> = () => {
   const [date, setDate] = React.useState(new Date());
   const [showPicker, setShowPicker] = React.useState(false);
 
@@ -35,5 +35,3 @@ const Calendar: React.FC<CalendarProps> = () => {
     </View>
   );
 };
-
-export default Calendar;
