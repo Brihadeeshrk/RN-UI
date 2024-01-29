@@ -1,31 +1,26 @@
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
-import Flex from "./components/Core/Flex";
+import { NavigationContainer } from "@react-navigation/native";
+
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import HomeScreen from "./src/screens/Home.screen";
+import UIContextProvider from "./src/store/context";
+// import FlexScreen from "./screens/Flex.screen";
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <>
       <StatusBar style="auto" />
-      <View className="flex-1 items-center justify-center bg-yellow-400">
-        <Flex p={5} border="border-2 border-red-500">
-          <Text>
-            Open up App.tsx to start working on your app! this is another line
-            of text
-          </Text>
-          <Text>
-            Open up App.tsx to start working on your app! this is another line
-            of text
-          </Text>
-          <Text>
-            Open up App.tsx to start working on your app! this is another line
-            of text
-          </Text>
-          <Text>
-            Open up App.tsx to start working on your app! this is another line
-            of text
-          </Text>
-        </Flex>
-      </View>
+      <UIContextProvider>
+        <NavigationContainer>
+          <Drawer.Navigator>
+            <Drawer.Screen name="Home" component={HomeScreen} />
+            {/* <Drawer.Screen name="Flex" component={FlexScreen} /> */}
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </UIContextProvider>
     </>
   );
 }
