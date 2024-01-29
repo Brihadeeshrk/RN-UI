@@ -7,6 +7,8 @@ import { UIContext } from "../store/context";
 import Container from "../components/Core/Container";
 import { Badge } from "../components/Core/Badge";
 import { DialogBox } from "../components/Core/DialogBox";
+import { Accordion } from "../components/Core/Accordion";
+import Calendar from "../components/Core/Calendar";
 
 const HomeScreen: React.FC = () => {
   const {
@@ -19,7 +21,7 @@ const HomeScreen: React.FC = () => {
   } = useContext(UIContext);
 
   return (
-    <ScrollView className="p-5">
+    <ScrollView className="p-5" contentContainerStyle={{ paddingBottom: 50 }}>
       <Container>
         <Text className="font-bold text-lg">Blockquote</Text>
         <BlockQuote
@@ -75,6 +77,25 @@ const HomeScreen: React.FC = () => {
           />
           <Text>This is the content of the dialog box.</Text>
         </DialogBox>
+      </Container>
+
+      <Container>
+        <Text className="font-bold text-lg ">Accordion</Text>
+        <Accordion title="Section 1">
+          <Text>This is the content of section 1.</Text>
+          <Badge text="New" backgroundColor="bg-blue-500" />
+        </Accordion>
+        <Accordion title="Section 2">
+          <Text>This is the content of section 2.</Text>
+        </Accordion>
+        <Accordion title="Section 3">
+          <Text>This is the content of section 3.</Text>
+        </Accordion>
+      </Container>
+
+      <Container>
+        <Text className="font-bold text-lg ">Calendar</Text>
+        <Calendar />
       </Container>
     </ScrollView>
   );
