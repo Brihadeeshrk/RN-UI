@@ -96,20 +96,69 @@ const HomeScreen: React.FC = () => {
       </Container>
 
       <Container>
-        <Text className="font-bold text-lg ">Avatar</Text>
-        <Avatar />
+        <Text className="font-bold text-lg">Avatar</Text>
+        <View className="items-center justify-center flex-row ">
+          <View className="flex-1 items-center justify-center">
+            <Avatar
+              size={70}
+              shape="circle"
+              onClick={() => {
+                console.log("Avathar Clicked");
+              }}
+            />
+            <Text className="pt-2"> Default</Text>
+          </View>
+          <View className="flex-1 items-center justify-center">
+            <Avatar
+              uri={require("../../assets/sampleprofilepic.png")}
+              size={70}
+              shape="circle"
+              onClick={() => {
+                console.log("Avathar Clicked");
+              }}
+            />
+            <Text className="pt-2"> Uploaded image </Text>
+          </View>
+        </View>
       </Container>
 
       <Container>
         <Text className="font-bold text-lg ">Button</Text>
-        <Button>This is a Button</Button>
+        <Button
+          size="medium"
+          color="bg-[#AC7D88]"
+          onPress={() => {
+            console.log("Button-Clicked");
+          }}
+          textColor="text-[#fff]"
+          borderRadius="2xl"
+          //variant="outline"
+        >
+          Press me
+        </Button>
       </Container>
 
       <Container>
-        <Text className="font-bold text-lg ">Card</Text>
-        <Card>
-          <Text className="font-bold text-lg ">Card</Text>
-          <Text>This is the content of the card.</Text>
+        <Text className="font-bold text-lg">Card</Text>
+        <Card
+          title="Card Title"
+          headingBackgroundColor="bg-[#AC7D88]"
+          width="w-[170]"
+          headerTextColor="text-[#fff]"
+        >
+          <View className=" items-center justify-center">
+            <Avatar
+              uri={require("../../assets/sampleprofilepic.png")}
+              size={100}
+              shape="circle"
+              onClick={() => {
+                console.log("Avathar Clicked");
+              }}
+            />
+          </View>
+          <View className="py-4">
+            <Text>This is a text from Flex Component</Text>
+          </View>
         </Card>
       </Container>
     </ScrollView>
