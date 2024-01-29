@@ -5,6 +5,8 @@ export const UIContext = createContext({
   promptModalOpen: false,
   updatePromptModalOpen: (value: boolean) => {},
   updateAlertModalOpen: (value: boolean) => {},
+  dialogModalOpen: false,
+  updateDialogModalOpen: (value: boolean) => {},
 });
 
 interface UIContextProviderProps {
@@ -14,6 +16,7 @@ interface UIContextProviderProps {
 const UIContextProvider: React.FC<UIContextProviderProps> = ({ children }) => {
   const [alertModalOpen, setAlertModalOpen] = React.useState(false);
   const [promptModalOpen, setPromptModalOpen] = React.useState(false);
+  const [dialogModalOpen, setDialogModalOpen] = React.useState(false);
 
   const updatePromptModalOpen = (value: boolean) => {
     setPromptModalOpen(value);
@@ -23,11 +26,17 @@ const UIContextProvider: React.FC<UIContextProviderProps> = ({ children }) => {
     setAlertModalOpen(value);
   };
 
+  const updateDialogModalOpen = (value: boolean) => {
+    setDialogModalOpen(value);
+  };
+
   const value = {
     alertModalOpen,
     promptModalOpen,
     updateAlertModalOpen,
     updatePromptModalOpen,
+    dialogModalOpen,
+    updateDialogModalOpen,
   };
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
 };
