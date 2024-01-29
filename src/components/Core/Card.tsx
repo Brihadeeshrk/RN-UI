@@ -1,6 +1,6 @@
 // Card.tsx
 import React from "react";
-import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import { TouchableWithoutFeedback, View, Text, StyleSheet } from "react-native";
 import cn from "classnames";
 
 export interface CardProps {
@@ -34,7 +34,7 @@ const Card: React.FC<CardProps> = ({
   });
 
   return (
-    <TouchableOpacity onPress={onCardPress} activeOpacity={0.7}>
+    <TouchableWithoutFeedback onPress={onCardPress}>
       <View className={cn(` rounded-lg  m-2.5 ${width}`)} style={styles.card}>
         <View
           className={cn(
@@ -49,7 +49,7 @@ const Card: React.FC<CardProps> = ({
         </View>
         <View className="p-2.5">{children}</View>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 };
 

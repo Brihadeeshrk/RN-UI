@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Text, View } from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { BlockQuote } from "../components/Core/BlockQuote";
@@ -12,6 +12,7 @@ import { Calendar } from "../components/Core/Calendar";
 import Avatar from "../components/Core/Avatar";
 import Button from "../components/Core/Button";
 import Card from "../components/Core/Card";
+import RadioButton from "../components/Core/RadioButton";
 
 const HomeScreen: React.FC = () => {
   const {
@@ -22,7 +23,7 @@ const HomeScreen: React.FC = () => {
     dialogModalOpen,
     updateDialogModalOpen,
   } = useContext(UIContext);
-
+  const [selectedGender, setSelectedGender] = useState("Male");
   return (
     <ScrollView className="p-5" contentContainerStyle={{ paddingBottom: 50 }}>
       <Container>
@@ -35,15 +36,50 @@ const HomeScreen: React.FC = () => {
       </Container>
 
       <Container>
+        <Text className="font-bold text-lg ">Button</Text>
+        <Button
+          size="medium"
+          color="bg-[#99BC85]"
+          onPress={() => {
+            console.log("Button-Clicked");
+          }}
+          textColor="text-[#fff]"
+          borderRadius="rounded-3xl"
+        >
+          Button
+        </Button>
+      </Container>
+
+      <Container>
         <Text className="font-bold text-lg">Alert and Prompt Modals</Text>
-        <Button onPress={() => updateAlertModalOpen(true)}>Show Alert</Button>
+        <View className="flex-row">
+          <View className="flex-1 m-3 ">
+            <Button
+              color="bg-[#474F7A]"
+              textColor="text-[#fff]"
+              borderRadius="rounded-3xl"
+              onPress={() => updateAlertModalOpen(true)}
+            >
+              Show Alert
+            </Button>
+          </View>
+          <View className="flex-1 m-3">
+            <Button
+              color="bg-[#474F7A]"
+              textColor="text-[#fff]"
+              borderRadius="rounded-3xl"
+              onPress={() => updatePromptModalOpen(true)}
+            >
+              Show Prompt
+            </Button>
+          </View>
+        </View>
         <Alert
           message="This is an alert message."
           visible={alertModalOpen}
           onClose={() => updateAlertModalOpen(false)}
         />
 
-        <Button onPress={() => updatePromptModalOpen(true)}>Show Prompt</Button>
         <Alert
           message="Enter a value:"
           visible={promptModalOpen}
@@ -120,22 +156,29 @@ const HomeScreen: React.FC = () => {
             <Text className="pt-2"> Uploaded image </Text>
           </View>
         </View>
-      </Container>
-
-      <Container>
-        <Text className="font-bold text-lg ">Button</Text>
-        <Button
-          size="medium"
-          color="bg-[#AC7D88]"
-          onPress={() => {
-            console.log("Button-Clicked");
-          }}
-          textColor="text-[#fff]"
-          borderRadius="2xl"
-          //variant="outline"
-        >
-          Press me
-        </Button>
+        <Text className="font-bold py-3 ">Shapes</Text>
+        <View>
+          <View className="items-center justify-center flex-row ">
+            <View className="flex-1 items-center justify-center">
+              <Avatar size={70} shape="circle" />
+              <Text className="pt-2"> Circle</Text>
+            </View>
+            <View className="flex-1 items-center justify-center">
+              <Avatar size={70} shape="rounded" />
+              <Text className="pt-2"> Rounded </Text>
+            </View>
+            <View className="flex-1 items-center justify-center">
+              <Avatar
+                size={70}
+                shape="square"
+                onClick={() => {
+                  console.log("Avathar Clicked");
+                }}
+              />
+              <Text className="pt-2"> Square </Text>
+            </View>
+          </View>
+        </View>
       </Container>
 
       <Container>
@@ -145,6 +188,9 @@ const HomeScreen: React.FC = () => {
           headingBackgroundColor="bg-[#AC7D88]"
           width="w-[170]"
           headerTextColor="text-[#fff]"
+          onCardPress={() => {
+            console.log("card-clicked");
+          }}
         >
           <View className=" items-center justify-center">
             <Avatar
@@ -157,9 +203,54 @@ const HomeScreen: React.FC = () => {
             />
           </View>
           <View className="py-4">
-            <Text>This is a text from Flex Component</Text>
+            <Text>This is a sample text </Text>
           </View>
         </Card>
+      </Container>
+
+      <Container>
+        <Text className="font-bold text-lg">Radio Buttons</Text>
+        <View className="mt-3">
+          <RadioButton
+            label="Male"
+            checked={selectedGender === "Male"}
+            onPress={() => setSelectedGender("Male")}
+            checkedColor="#7E2553"
+          />
+          <RadioButton
+            label="Female"
+            checkedColor="#7E2553"
+            checked={selectedGender === "Female"}
+            onPress={() => setSelectedGender("Female")}
+          />
+        </View>
+        <Text className="font-bold ">Sizes</Text>
+        <View className="flex-row justify-between mt-3 ">
+          <View>
+            <RadioButton
+              checked={true}
+              size="small"
+              label="Small"
+              checkedColor="#6C22A6"
+            />
+          </View>
+          <View>
+            <RadioButton
+              checked={true}
+              size="medium"
+              label="Medium"
+              checkedColor="#6C22A6"
+            />
+          </View>
+          <View>
+            <RadioButton
+              checked={true}
+              size="large"
+              label="Large"
+              checkedColor="#6C22A6"
+            />
+          </View>
+        </View>
       </Container>
     </ScrollView>
   );

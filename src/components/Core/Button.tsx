@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 import cn from "classnames";
 
 type ButtonProps = {
@@ -14,10 +14,10 @@ type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({
   size,
-  color,
+  color = "bg-[#40A2D8]",
   textColor,
   children,
-  borderRadius,
+  borderRadius = "rounded-md",
   onPress,
   variant = "solid",
 }) => {
@@ -33,13 +33,25 @@ const Button: React.FC<ButtonProps> = ({
         return "p-4";
     }
   };
+  const styles = StyleSheet.create({
+    boxShadow: {
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.3,
+      shadowRadius: 3,
+      elevation: 5,
+    },
+  });
 
   return (
     <TouchableOpacity
-      className={cn(`${color}`, getSizeClasses(), `rounded-${borderRadius}`)}
+      style={styles.boxShadow}
+      className={cn(`${color}`, getSizeClasses(), `${borderRadius}`)}
       onPress={onPress}
     >
-      <Text className={textColor}>{children}</Text>
+      <View className={"items-center justify-center"}>
+        <Text className={textColor}>{children}</Text>
+      </View>
     </TouchableOpacity>
   );
 };
