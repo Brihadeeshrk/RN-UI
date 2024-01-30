@@ -13,6 +13,13 @@ import Avatar from "../components/Core/Avatar";
 import Button from "../components/Core/Button";
 import Card from "../components/Core/Card";
 import RadioButton from "../components/Core/RadioButton";
+import { Skeleton } from "../components/Core/Skeleton";
+
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+import Toast from "../components/Core/Toast";
 
 const HomeScreen: React.FC = () => {
   const {
@@ -254,6 +261,7 @@ const HomeScreen: React.FC = () => {
       </Container>
 
       <Container>
+<<<<<<< HEAD
       <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Progress Bar</Text>
       <ProgressBar min={0} max={100} progress={50} />
     </Container>
@@ -267,6 +275,16 @@ const HomeScreen: React.FC = () => {
       <Heading text="Welcome to My App" />
     </Container>
 
+=======
+        <Text className="font-bold text-lg">Skeleton</Text>
+        <Skeleton height={150} width={wp(80)} />
+      </Container>
+
+      <Container>
+        <Text className="font-bold text-lg">Toast</Text>
+        <Toast />
+      </Container>
+>>>>>>> 8e00b70e72c9edce3504717c4e48cd5062f4eb38
     </ScrollView>
   );
 };

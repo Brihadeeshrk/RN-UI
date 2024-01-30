@@ -10,6 +10,7 @@ type ButtonProps = {
   borderRadius?: string;
   onPress?: () => void;
   variant?: "solid" | "outline" | "soft";
+  classNames?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   borderRadius = "rounded-md",
   onPress,
   variant = "solid",
+  classNames,
 }) => {
   const getSizeClasses = () => {
     switch (size) {
@@ -46,7 +48,12 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <TouchableOpacity
       style={styles.boxShadow}
-      className={cn(`${color}`, getSizeClasses(), `${borderRadius}`)}
+      className={cn(
+        `${color}`,
+        getSizeClasses(),
+        `${borderRadius}`,
+        classNames
+      )}
       onPress={onPress}
     >
       <View className={"items-center justify-center"}>
@@ -57,16 +64,3 @@ const Button: React.FC<ButtonProps> = ({
 };
 
 export default Button;
-
-//  <View className="pt-3">
-//    <Button
-//      size="medium"
-//      color="bg-[#AC7D88]"
-//      onPress={handlePress}
-//      textColor="text-[#fff]"
-//      borderRadius="3xl"
-//      //variant="outline"
-//    >
-//      Press me
-//    </Button>
-//  </View>;

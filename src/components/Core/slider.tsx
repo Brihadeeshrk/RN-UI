@@ -56,3 +56,5 @@ export const Slider: React.FC<SliderProps> = ({ min, max }) => {
     </View>
   );
 };
+
+export default Slider;

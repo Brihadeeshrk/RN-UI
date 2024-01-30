@@ -8,7 +8,7 @@ type ProgressBarProps = {
   progress: number;
 };
 
-export const ProgressBar: React.FC<ProgressBarProps> = ({ min, max, progress }) => {
+ const ProgressBar: React.FC<ProgressBarProps> = ({ min, max, progress }) => {
   const [value, setValue] = useState(progress);
 
   const progressClasses = classNames(
@@ -37,3 +37,5 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ min, max, progress }) 
     </View>
   );
 };
+
+export default ProgressBar;
