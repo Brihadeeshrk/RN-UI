@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Text, View } from "react-native";
+import { ImageComponent, Text, View } from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { BlockQuote } from "../components/Core/BlockQuote";
 import { Alert } from "../components/Core/Alert";
@@ -14,6 +14,7 @@ import Button from "../components/Core/Button";
 import Card from "../components/Core/Card";
 import RadioButton from "../components/Core/RadioButton";
 import { Skeleton } from "../components/Core/Skeleton";
+import carousel from "../components/Core/carousel";
 
 import {
   widthPercentageToDP as wp,
@@ -298,6 +299,11 @@ const HomeScreen: React.FC = () => {
         <Text className="font-bold text-lg">Toast</Text>
         <Toast />
       </Container>
+
+      <Container>
+        <Text>carousel</Text>
+        <Carousel/>
+        </Container>
     </ScrollView>
   );
 };
