@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { ImageComponent, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { BlockQuote } from "../components/Core/BlockQuote";
 import { Alert } from "../components/Core/Alert";
@@ -14,7 +14,6 @@ import Button from "../components/Core/Button";
 import Card from "../components/Core/Card";
 import RadioButton from "../components/Core/RadioButton";
 import { Skeleton } from "../components/Core/Skeleton";
-import carousel from "../components/Core/carousel";
 
 import {
   widthPercentageToDP as wp,
@@ -276,21 +275,6 @@ const HomeScreen: React.FC = () => {
       </Container>
 
       <Container>
-<<<<<<< HEAD
-      <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Progress Bar</Text>
-      <ProgressBar min={0} max={100} progress={50} />
-    </Container>
-
-    <Container>
-      <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Slider</Text>
-      <Slider min={0} max={100} onValueChange={handleSliderChange} />
-    </Container>
-
-    <Container>
-      <Heading text="Welcome to My App" />
-    </Container>
-
-=======
         <Text className="font-bold text-lg">Skeleton</Text>
         <Skeleton height={150} width={wp(80)} />
       </Container>
@@ -299,11 +283,74 @@ const HomeScreen: React.FC = () => {
         <Text className="font-bold text-lg">Toast</Text>
         <Toast />
       </Container>
+      <Container>
+        <Text className="font-bold text-lg">Checkbox</Text>
+        <View className="flex-row justify-between pt-3">
+          <View>
+            <Checkbox
+              checked={true}
+              onPress={handlePress}
+              label="Small"
+              checkedColor="#CD5C08"
+              size="small"
+            />
+          </View>
+          <View>
+            <Checkbox
+              checked={true}
+              onPress={handlePress}
+              label="Medium"
+              checkedColor="#CD5C08"
+              size="medium"
+            />
+          </View>
+          <View>
+            <Checkbox
+              checked={true}
+              onPress={handlePress}
+              label="Large"
+              checkedColor="#CD5C08"
+              size="large"
+            />
+          </View>
+        </View>
+      </Container>
 
       <Container>
-        <Text>carousel</Text>
-        <Carousel/>
-        </Container>
+        <Text className="font-bold text-lg">TextArea</Text>
+        <TextArea
+          placeholder="Type your message..."
+          onValueChange={setText}
+          value={text}
+        />
+      </Container>
+
+      <Container>
+        <Text className="font-bold text-lg">Switch</Text>
+        <View className="p-3 justify-between flex-row ">
+          <View>
+            <SwitchComponent
+              trackColor={{ false: "#D1D5DB", true: "#5cb85c" }}
+              thumbColor={{ false: "#F9FAFB", true: "#294B29" }}
+              value={true}
+            />
+          </View>
+          <View>
+            <SwitchComponent
+              trackColor={{ false: "#D1D5DB", true: "#5cb85c" }}
+              thumbColor={{ false: "#F9FAFB", true: "#294B29" }}
+              value={false}
+            />
+          </View>
+          <View>
+            <SwitchComponent
+              trackColor={{ false: "#D1D5DB", true: "#F3D7CA" }}
+              thumbColor={{ false: "#F9FAFB", true: "#0B60B0" }}
+              value={true}
+            />
+          </View>
+        </View>
+      </Container>
     </ScrollView>
   );
 };
