@@ -22,6 +22,7 @@ import {
 import Toast from "../components/Core/Toast";
 import Checkbox from "../components/Core/Checkbox";
 import TextArea from "../components/Core/TextArea";
+import SwitchComponent from "../components/Core/SwitchComponent";
 
 const HomeScreen: React.FC = () => {
   const {
@@ -322,6 +323,33 @@ const HomeScreen: React.FC = () => {
           onValueChange={setText}
           value={text}
         />
+      </Container>
+
+      <Container>
+        <Text className="font-bold text-lg">Switch</Text>
+        <View className="p-3 justify-between flex-row ">
+          <View>
+            <SwitchComponent
+              trackColor={{ false: "#D1D5DB", true: "#5cb85c" }}
+              thumbColor={{ false: "#F9FAFB", true: "#294B29" }}
+              value={true}
+            />
+          </View>
+          <View>
+            <SwitchComponent
+              trackColor={{ false: "#D1D5DB", true: "#5cb85c" }}
+              thumbColor={{ false: "#F9FAFB", true: "#294B29" }}
+              value={false}
+            />
+          </View>
+          <View>
+            <SwitchComponent
+              trackColor={{ false: "#D1D5DB", true: "#F3D7CA" }}
+              thumbColor={{ false: "#F9FAFB", true: "#0B60B0" }}
+              value={true}
+            />
+          </View>
+        </View>
       </Container>
     </ScrollView>
   );
