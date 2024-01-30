@@ -25,6 +25,7 @@ import TextArea from "../components/Core/TextArea";
 import SwitchComponent from "../components/Core/SwitchComponent";
 import Slider from "../components/Core/slider";
 import Heading from "../components/Core/heading";
+import Dropdown from "../components/Core/Dropdown";
 
 const HomeScreen: React.FC = () => {
   const {
@@ -46,6 +47,15 @@ const HomeScreen: React.FC = () => {
 
   //TextArea State
   const [text, setText] = useState("");
+
+  // Dropdown state
+  const [selectedValue, setSelectedValue] = useState("option1");
+
+  const items = [
+    { label: "Option 1", value: "option1" },
+    { label: "Option 2", value: "option2" },
+    { label: "Option 3", value: "option3" },
+  ];
 
   return (
     <ScrollView className="p-5" contentContainerStyle={{ paddingBottom: 50 }}>
@@ -299,7 +309,7 @@ const HomeScreen: React.FC = () => {
           </View>
           <View>
             <Checkbox
-              checked={true}
+              checked={false}
               onPress={handlePress}
               label="Medium"
               checkedColor="#CD5C08"
@@ -355,7 +365,18 @@ const HomeScreen: React.FC = () => {
       </Container>
       <Container>
         <Text className="font-bold text-lg">Heading</Text>
-        <Heading text="yooo hi" />
+        <Heading text="This is heading" />
+      </Container>
+      <Container>
+        <Text className="font-bold text-lg">Dropdown</Text>
+        <View className="p-3">
+          <Dropdown
+            selectedValue={selectedValue}
+            onValueChange={(itemValue) => setSelectedValue(itemValue)}
+            items={items}
+            style="rounded-3xl"
+          />
+        </View>
       </Container>
     </ScrollView>
   );
