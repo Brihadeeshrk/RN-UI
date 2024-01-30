@@ -1,23 +1,15 @@
-import React from 'react';
-import { Text, StyleSheet } from 'react-native';
-import classNames from 'classnames/native';
+import React from "react";
+import { Text, StyleSheet } from "react-native";
+import cn from "classnames";
 
 type HeadingProps = {
   text: string;
 };
 
 const Heading: React.FC<HeadingProps> = ({ text }) => {
-  const headingClasses = classNames('text-2xl', 'font-bold', 'mb-4', 'text-center');
+  const headingClasses = cn("text-2xl", "font-bold", "mb-4", "text-center");
 
-  return (
-    <Text style={styles(headingClasses).heading}>{text}</Text>
-  );
+  return <Text className={headingClasses}>{text}</Text>;
 };
-
-const styles = (headingClasses: string) => StyleSheet.create({
-  heading: {
-    ...headingClasses,
-  },
-});
 
 export default Heading;

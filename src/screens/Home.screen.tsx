@@ -23,6 +23,8 @@ import Toast from "../components/Core/Toast";
 import Checkbox from "../components/Core/Checkbox";
 import TextArea from "../components/Core/TextArea";
 import SwitchComponent from "../components/Core/SwitchComponent";
+import Slider from "../components/Core/slider";
+import Heading from "../components/Core/heading";
 
 const HomeScreen: React.FC = () => {
   const {
@@ -350,6 +352,10 @@ const HomeScreen: React.FC = () => {
             />
           </View>
         </View>
+      </Container>
+      <Container>
+        <Text className="font-bold text-lg">Heading</Text>
+        <Heading text="yooo hi" />
       </Container>
     </ScrollView>
   );
