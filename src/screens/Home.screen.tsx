@@ -20,6 +20,8 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Toast from "../components/Core/Toast";
+import Checkbox from "../components/Core/Checkbox";
+import TextArea from "../components/Core/TextArea";
 
 const HomeScreen: React.FC = () => {
   const {
@@ -31,6 +33,17 @@ const HomeScreen: React.FC = () => {
     updateDialogModalOpen,
   } = useContext(UIContext);
   const [selectedGender, setSelectedGender] = useState("Male");
+
+  // Checkbox State
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handlePress = () => {
+    setIsChecked(!isChecked);
+  };
+
+  //TextArea State
+  const [text, setText] = useState("");
+
   return (
     <ScrollView className="p-5" contentContainerStyle={{ paddingBottom: 50 }}>
       <Container>
@@ -268,6 +281,47 @@ const HomeScreen: React.FC = () => {
       <Container>
         <Text className="font-bold text-lg">Toast</Text>
         <Toast />
+      </Container>
+      <Container>
+        <Text className="font-bold text-lg">Checkbox</Text>
+        <View className="flex-row justify-between pt-3">
+          <View>
+            <Checkbox
+              checked={true}
+              onPress={handlePress}
+              label="Small"
+              checkedColor="#CD5C08"
+              size="small"
+            />
+          </View>
+          <View>
+            <Checkbox
+              checked={true}
+              onPress={handlePress}
+              label="Medium"
+              checkedColor="#CD5C08"
+              size="medium"
+            />
+          </View>
+          <View>
+            <Checkbox
+              checked={true}
+              onPress={handlePress}
+              label="Large"
+              checkedColor="#CD5C08"
+              size="large"
+            />
+          </View>
+        </View>
+      </Container>
+
+      <Container>
+        <Text className="font-bold text-lg">TextArea</Text>
+        <TextArea
+          placeholder="Type your message..."
+          onValueChange={setText}
+          value={text}
+        />
       </Container>
     </ScrollView>
   );

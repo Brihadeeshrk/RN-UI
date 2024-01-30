@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, TouchableOpacity, View, StyleSheet } from "react-native";
 
-type RadioButtonProps = {
+type CheckboxProps = {
   label?: string;
   checked?: boolean;
   onPress?: () => void;
@@ -11,7 +11,7 @@ type RadioButtonProps = {
   size?: "small" | "medium" | "large";
 };
 
-const RadioButton: React.FC<RadioButtonProps> = ({
+const Checkbox: React.FC<CheckboxProps> = ({
   label,
   checked,
   onPress,
@@ -24,19 +24,19 @@ const RadioButton: React.FC<RadioButtonProps> = ({
     switch (size) {
       case "small":
         return {
-          outerCircle: { height: 16, width: 16, borderRadius: 8 },
-          innerCircle: { height: 8, width: 8, borderRadius: 4 },
+          box: { height: 16, width: 16, borderRadius: 2 },
+          checkmark: { fontSize: 12 },
         };
       case "large":
         return {
-          outerCircle: { height: 32, width: 32, borderRadius: 16 },
-          innerCircle: { height: 16, width: 16, borderRadius: 8 },
+          box: { height: 32, width: 32, borderRadius: 4 },
+          checkmark: { fontSize: 24 },
         };
       case "medium":
       default:
         return {
-          outerCircle: { height: 24, width: 24, borderRadius: 12 },
-          innerCircle: { height: 12, width: 12, borderRadius: 6 },
+          box: { height: 24, width: 24, borderRadius: 3 },
+          checkmark: { fontSize: 18 },
         };
     }
   };
@@ -47,22 +47,26 @@ const RadioButton: React.FC<RadioButtonProps> = ({
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View
         style={[
-          styles.outerCircle,
-          sizeStyles.outerCircle,
-          { borderColor: checked ? checkedColor : uncheckedColor },
+          styles.box,
+          sizeStyles.box,
+          {
+            backgroundColor: checked ? checkedColor : "transparent",
+            borderColor: checked ? checkedColor : uncheckedColor,
+            borderWidth: 2,
+          },
         ]}
       >
         {checked && (
-          <View
-            style={[
-              styles.innerCircle,
-              sizeStyles.innerCircle,
-              { backgroundColor: checkedColor },
-            ]}
-          />
+          <Text
+            style={[styles.checkmark, sizeStyles.checkmark, { color: "white" }]}
+          >
+            ✓
+          </Text>
         )}
       </View>
-      <Text style={[styles.label, { color: labelColor }]}>{label}</Text>
+      {label && (
+        <Text style={[styles.label, { color: labelColor }]}>{label}</Text>
+      )}
     </TouchableOpacity>
   );
 };
@@ -73,23 +77,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 10,
   },
-  outerCircle: {
-    height: 24,
-    width: 24,
-    borderRadius: 12,
-    borderWidth: 2,
+  box: {
     justifyContent: "center",
     alignItems: "center",
     marginRight: 10,
   },
-  innerCircle: {
-    height: 12,
-    width: 12,
-    borderRadius: 6,
-  },
+  checkmark: {},
   label: {
     fontSize: 16,
   },
 });
 
-export default RadioButton;
+export default Checkbox;
