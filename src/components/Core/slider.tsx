@@ -7,7 +7,7 @@ type SliderProps = {
   max: number;
 };
 
-export const Slider: React.FC<SliderProps> = ({ min, max }) => {
+ const Slider: React.FC<SliderProps> = ({ min, max }) => {
   const [value, setValue] = useState(min);
 
   const handleChange = (newValue: number) => {

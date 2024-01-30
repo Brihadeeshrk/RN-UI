@@ -26,6 +26,7 @@ import SwitchComponent from "../components/Core/SwitchComponent";
 import Slider from "../components/Core/slider";
 import Heading from "../components/Core/heading";
 import Dropdown from "../components/Core/Dropdown";
+import ProgressBar from "../components/Core/ProgressBar";
 
 const HomeScreen: React.FC = () => {
   const {
@@ -377,6 +378,11 @@ const HomeScreen: React.FC = () => {
             style="rounded-3xl"
           />
         </View>
+      </Container>
+
+      <Container>
+      <Text className="font-bold text-lg">ProgressBar</Text>
+        <ProgressBar min={0} max={100} progress={40}/>
       </Container>
     </ScrollView>
   );
