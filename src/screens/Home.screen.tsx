@@ -20,6 +20,9 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Toast from "../components/Core/Toast";
+import Checkbox from "../components/Core/Checkbox";
+import TextArea from "../components/Core/TextArea";
+import SwitchComponent from "../components/Core/SwitchComponent";
 
 const HomeScreen: React.FC = () => {
   const {
@@ -31,6 +34,17 @@ const HomeScreen: React.FC = () => {
     updateDialogModalOpen,
   } = useContext(UIContext);
   const [selectedGender, setSelectedGender] = useState("Male");
+
+  // Checkbox State
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handlePress = () => {
+    setIsChecked(!isChecked);
+  };
+
+  //TextArea State
+  const [text, setText] = useState("");
+
   return (
     <ScrollView className="p-5" contentContainerStyle={{ paddingBottom: 50 }}>
       <Container>
@@ -284,7 +298,6 @@ const HomeScreen: React.FC = () => {
         <Text className="font-bold text-lg">Toast</Text>
         <Toast />
       </Container>
->>>>>>> 8e00b70e72c9edce3504717c4e48cd5062f4eb38
     </ScrollView>
   );
 };
