@@ -28,6 +28,9 @@ import ProgressBar from "../components/Core/ProgressBar";
 import CustomSlider from "../components/Core/CustomSlider";
 import CircularProgress from "../components/Core/CircularProgress";
 import SearchBar from "../components/Core/SearchBar";
+import ToolTip from "../components/Core/ToolTip";
+
+
 
 
 
@@ -66,6 +69,10 @@ const HomeScreen: React.FC = () => {
   const handleSliderChange = (value: number) => {
     setSliderValue(value);
   };
+
+  
+
+
 
   // Dropdown state
   const [selectedValue, setSelectedValue] = useState("option1");
@@ -428,6 +435,18 @@ const HomeScreen: React.FC = () => {
         {/* Example usage of SearchBar */}
         <SearchBar onSearch={handleSearch} />
       </Container>
+
+      <Container>
+      <Text className="font-bold text-lg">ToolTip</Text>
+      <ToolTip
+        newFeatureText="New Cool Feature"
+        tooltipText="Welcome to React Native Tooltiplize"
+      />
+      </Container>
+
+  
+
+      
 
       
 

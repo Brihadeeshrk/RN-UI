@@ -10,11 +10,13 @@
     "ts:check": "tsc"
   },
   "dependencies": {
+    "@gorhom/portal": "^1.0.14",
     "@react-native-community/datetimepicker": "7.6.1",
     "@react-native-community/slider": "^4.5.0",
     "@react-native-picker/picker": "^2.6.1",
     "@react-navigation/drawer": "^6.6.6",
     "@react-navigation/native": "^6.1.9",
+    "@sefailyasoz/react-carousel": "^1.1.1",
     "classnames": "^2.5.1",
     "expo": "~50.0.2",
     "expo-status-bar": "~1.11.1",
@@ -23,13 +25,15 @@
     "react-native": "0.73.2",
     "react-native-gesture-handler": "~2.14.0",
     "react-native-maps": "^1.10.0",
+    "react-native-pagination": "^1.5.5",
     "react-native-reanimated": "~3.6.0",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "^4.8.2",
     "react-native-screens": "^3.29.0",
     "react-native-snap-carousel": "^4.0.0-beta.6",
     "react-native-svg": "^14.1.0",
-    "react-native-toast-notifications": "^3.4.0"
+    "react-native-toast-notifications": "^3.4.0",
+    "react-native-tooltiplize": "^0.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
