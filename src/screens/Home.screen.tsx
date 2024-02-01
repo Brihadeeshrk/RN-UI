@@ -27,6 +27,8 @@ import Dropdown from "../components/Core/Dropdown";
 import ProgressBar from "../components/Core/ProgressBar";
 import CustomSlider from "../components/Core/CustomSlider";
 import CircularProgress from "../components/Core/CircularProgress";
+import SearchBar from "../components/Core/SearchBar";
+
 
 
 
@@ -51,6 +53,12 @@ const HomeScreen: React.FC = () => {
 
   //TextArea State
   const [text, setText] = useState("");
+
+  //SearchBar
+  const handleSearch = (query: string) => {
+    console.log('Searching for:', query);
+    // Perform search operation with the query
+  };
 
 //CustomSlider
   const [sliderValue, setSliderValue] = useState(0);
@@ -414,6 +422,16 @@ const HomeScreen: React.FC = () => {
         <Text className="font-bold text-lg">Circular Progress</Text>
         <CircularProgress radius={60} strokeWidth={10} progress={75} />
       </Container>
+
+      <Container>
+        <Text className="font-bold text-lg">SearchBar Example</Text>
+        {/* Example usage of SearchBar */}
+        <SearchBar onSearch={handleSearch} />
+      </Container>
+
+      
+
+      
 
     </ScrollView>
   );
