@@ -14,7 +14,6 @@ import Button from "../components/Core/Button";
 import Card from "../components/Core/Card";
 import RadioButton from "../components/Core/RadioButton";
 import { Skeleton } from "../components/Core/Skeleton";
-import Slider from "@react-native-community/slider";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -26,6 +25,9 @@ import SwitchComponent from "../components/Core/SwitchComponent";
 import Heading from "../components/Core/heading";
 import Dropdown from "../components/Core/Dropdown";
 import ProgressBar from "../components/Core/ProgressBar";
+import CustomSlider from "../components/Core/CustomSlider";
+import CircularProgress from "../components/Core/CircularProgress";
+
 
 
 
@@ -50,8 +52,16 @@ const HomeScreen: React.FC = () => {
   //TextArea State
   const [text, setText] = useState("");
 
+//CustomSlider
+  const [sliderValue, setSliderValue] = useState(0);
+
+  const handleSliderChange = (value: number) => {
+    setSliderValue(value);
+  };
+
   // Dropdown state
   const [selectedValue, setSelectedValue] = useState("option1");
+
 
   const items = [
     { label: "Option 1", value: "option1" },
@@ -387,15 +397,23 @@ const HomeScreen: React.FC = () => {
       </Container>
 
       <Container>
-      <Text className="font-bold text-lg">Slider</Text>
-        <Slider/>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>Home Screen</Text>
+
+{/* Use the CustomSlider component */}
+<CustomSlider
+  min={0}
+  max={100}
+  step={1}
+  onValueChange={handleSliderChange}
+/>
+
+<Text style={{ fontSize: 18, marginTop: 20 }}>Slider Value: {sliderValue}</Text>
       </Container>
 
-
-     
-      
-      
-
+      <Container>
+        <Text className="font-bold text-lg">Circular Progress</Text>
+        <CircularProgress radius={60} strokeWidth={10} progress={75} />
+      </Container>
 
     </ScrollView>
   );
