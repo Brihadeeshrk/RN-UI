@@ -14,7 +14,7 @@ import Button from "../components/Core/Button";
 import Card from "../components/Core/Card";
 import RadioButton from "../components/Core/RadioButton";
 import { Skeleton } from "../components/Core/Skeleton";
-
+import Slider from "@react-native-community/slider";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -23,10 +23,11 @@ import Toast from "../components/Core/Toast";
 import Checkbox from "../components/Core/Checkbox";
 import TextArea from "../components/Core/TextArea";
 import SwitchComponent from "../components/Core/SwitchComponent";
-import Slider from "../components/Core/slider";
 import Heading from "../components/Core/heading";
 import Dropdown from "../components/Core/Dropdown";
 import ProgressBar from "../components/Core/ProgressBar";
+
+
 
 const HomeScreen: React.FC = () => {
   const {
@@ -384,6 +385,18 @@ const HomeScreen: React.FC = () => {
       <Text className="font-bold text-lg">ProgressBar</Text>
         <ProgressBar min={0} max={100} progress={40}/>
       </Container>
+
+      <Container>
+      <Text className="font-bold text-lg">Slider</Text>
+        <Slider/>
+      </Container>
+
+
+     
+      
+      
+
+
     </ScrollView>
   );
 };
