@@ -29,7 +29,7 @@ import CustomSlider from "../components/Core/CustomSlider";
 import CircularProgress from "../components/Core/CircularProgress";
 import SearchBar from "../components/Core/SearchBar";
 import ToolTip from "../components/Core/ToolTip";
-
+import Ratings from "../components/Core/Ratings";
 
 
 
@@ -439,12 +439,17 @@ const HomeScreen: React.FC = () => {
       <Container>
       <Text className="font-bold text-lg">ToolTip</Text>
       <ToolTip
-        newFeatureText="New Cool Feature"
-        tooltipText="Welcome to React Native Tooltiplize"
+        newFeatureText="ToolTip Example"
+        tooltipText="Welcome to React Native Tooltip"
       />
       </Container>
 
   
+      <Container>
+        <Text className="font-bold text-lg">Ratings</Text>
+        
+        <Ratings/>
+      </Container>
 
       
 
